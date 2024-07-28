@@ -1,0 +1,159 @@
+{
+  "name": "Public Whiteboard",
+  "class": "Brown Family",
+  "newElements": [
+    {
+      "type": "drawing",
+      "content": {}
+    },
+    {
+      "creator": "Charlie",
+      "rating": 0,
+      "type": "rectangle",
+      "color": "#eeb38c",
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        1680,
+        1020
+      ]
+    },
+    {
+      "creator": "Charlie",
+      "rating": 0,
+      "type": "line",
+      "color": "red",
+      "start": [
+        0,
+        510
+      ],
+      "end": [
+        1680,
+        510
+      ]
+    },
+    {
+      "creator": "Charlie",
+      "rating": -5,
+      "type": "text",
+      "content": "Welcome to the Journal!",
+      "fontsize": 100,
+      "font": "Arial",
+      "color": "grey",
+      "position": [
+        840,
+        50
+      ]
+    },
+    {
+      "creator": "Susan",
+      "rating": 0,
+      "type": "image",
+      "content": "https://www.svgrepo.com/show/513603/smile.svg",
+      "position": [
+        0,
+        0
+      ],
+      "size": [
+        100,
+        100
+      ]
+    },
+    {
+      "type": "text",
+      "position": [
+        182,
+        198
+      ],
+      "content": "Try using the text tool!",
+      "fontsize": 30,
+      "font": "Arial",
+      "color": "#fffff"
+    },
+    {
+      "type": "rectangle",
+      "position": [
+        15,
+        231
+      ],
+      "size": [
+        396,
+        248
+      ],
+      "color": "#ffffff"
+    },
+    {
+      "type": "text",
+      "position": [
+        944,
+        250
+      ],
+      "content": "To use the line and rectangle tools, click and drag your mouse.",
+      "fontsize": 30,
+      "font": "Arial",
+      "color": "#ffffff"
+    },
+    {
+      "type": "line",
+      "color": "#000000",
+      "start": [
+        498,
+        759
+      ],
+      "end": [
+        820,
+        662
+      ]
+    },
+    {
+      "type": "rectangle",
+      "position": [
+        496,
+        652
+      ],
+      "size": [
+        332,
+        116
+      ],
+      "color": "#"
+    },
+    {
+      "type": "line",
+      "color": "#000000",
+      "start": [
+        497,
+        655
+      ],
+      "end": [
+        827,
+        764
+      ]
+    },
+    {
+      "type": "line",
+      "color": "#000000",
+      "start": [
+        827,
+        654
+      ],
+      "end": [
+        498,
+        766
+      ]
+    },
+    {
+      "type": "text",
+      "position": [
+        675,
+        868
+      ],
+      "content": "Unfortunately, the other tools could not be finished on time.",
+      "fontsize": 30,
+      "font": "Arial",
+      "color": "#ff0000"
+    }
+  ],
+  "elements": []
+}

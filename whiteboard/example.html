@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--link rel="stylesheet" href="style.css"-->
+    <title>CareConnect Journal</title>
+  </head>
+  <body>
+    <canvas width="1680px" height="1020px" id="canvas">
+      
+    </canvas>
+    <button id="text">Aa</button>
+    <button id="rectangle">Rectangle</button>
+    <button id="circle">Circle</button>
+    <button id="line">Line</button>
+    <button id="voice">Voice</button>
+    <button id="image">Image</button>
+    <button id="doctor">Description from Doctor</button>
+    <input type="text" id="colour"></input>
+    <input type="text" id="fontsize"></input>
+    <input type="text" id="imagelink"></input>
+    <script src="script.js"></script>
+    <script>
+      console.log(currentMode);
+      loadWhiteboard("example.json")
+      var text = document.getElementById("text");
+      var rectangle = document.getElementById("rectangle");
+      var circle = document.getElementById("circle");
+      circle.disabled = true;
+      var lineE = document.getElementById("line");
+      var voice = document.getElementById("voice");
+      voice.disabled = true;
+      var image = document.getElementById("image");
+      document.getElementById("doctor").disabled = true;
+      var canvas = document.getElementById("canvas");
+      //var doctor = document.getElementById("doctor");
+      var typesAndMethods = {
+        "text": toText,
+        "rectangle": toRectangle,
+        //"circle": toCircle,
+        "line": toLine,
+        //"voice": toVoice,
+        "image": toImage
+      }
+      var typesAndResponses = {
+        "text": {
+          "click": textEdit,
+        },
+        "rectangle": {
+          "mousedown": rect,
+          "mouseup": rectEnded
+        },/*
+        "circle": {
+          "mousedown": circ,
+          "mouseup": circEnded
+        },*/
+        "line": {
+          "mousedown": line,
+          "mouseup": lineEnded
+        },
+        /*"voice": {
+          "mouseclick": insertAudio
+        },*/
+        "image": {
+          "mousedown": insertImage,
+          "mouseup": insertImageEnded
+        }
+      }
+
+      function changeCanvasEvent() {
+        for (const [event, method] of Object.entries(currentCanvasEvents)) {
+          //console.log(event, method);
+          canvas.removeEventListener(event, method);
+        };
+        //console.log(currentMode, typesAndResponses[currentMode]);
+        for (const [event, method] of Object.entries(typesAndResponses[currentMode])) {
+          currentCanvasEvents[event] = method;
+          canvas.addEventListener(event, method);
+        };
+        position1 = position2 = [];
+        //console.log(currentCanvasEvents);
+      };
+      function modeChanged() {
+        console.log("mode changed!");
+        for (const [elementName, method] of Object.entries(typesAndMethods)) {
+          if (currentMode == elementName) { continue; };
+          var element = document.getElementById(elementName);
+          if (!element.disabled) { continue; };
+          element.disabled = false;
+          element.addEventListener("click", method);
+        }
+        changeCanvasEvent(currentMode);
+      }
+      
+      function toText(event) {
+        //console.log("test");
+        this.removeEventListener("click", toText);
+        
+        this.disabled = true;
+        currentMode = "text";
+        modeChanged();
+      };
+
+      function toRectangle() {
+        this.removeEventListener("click", toRectangle);
+        this.disabled = true;
+        currentMode = "rectangle";
+        modeChanged();
+      };
+
+      function toCircle() {
+        this.removeEventListener("click", toCircle);
+        this.disabled = true;
+        currentMode = "circle";
+        modeChanged();
+      };
+
+      function toLine() {
+        this.removeEventListener("click", toLine);
+        this.disabled = true;
+        currentMode = "line";
+        modeChanged();
+      };
+
+      function toVoice() {
+        this.removeEventListener("click", toVoice);
+        this.disabled = true;
+        currentMode = "voice";
+        modeChanged();
+      };
+
+      function toImage() {
+        this.removeEventListener("click", toImage);
+        this.disabled = true;
+        currentMode = "image";
+        modeChanged();
+      };
+
+      text.addEventListener("click", toText);
+      rectangle.addEventListener("click", toRectangle);
+      //circle.addEventListener("click", toCircle);
+      lineE.addEventListener("click", toLine);
+      //voice.addEventListener("click", toVoice);
+      image.addEventListener("click", toImage);
+    </script>
+  </body>
+</html>
